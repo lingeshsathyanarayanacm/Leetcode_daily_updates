@@ -3,8 +3,11 @@ import java.util.*;
 class Solution {
     public boolean check(int[] nums) {
         int n = nums.length;
-        int[] arr = Arrays.copyOf(nums, n); 
-        Arrays.sort(arr); 
+        List<Integer> sortedList = new ArrayList<>();
+        for (int num : nums) {
+            sortedList.add(num);
+        }
+        Collections.sort(sortedList);
         
         List<List<Integer>> cse = new ArrayList<>();
         
@@ -13,9 +16,9 @@ class Solution {
             for (int j = 0; j < n; j++) {
                 current.add(nums[(j + i) % n]);
             }
-            cse.add(new ArrayList<>(current));
+            cse.add(current);
         }
         
-        return cse.contains(Arrays.asList(Arrays.stream(arr).boxed().toArray(Integer[]::new)));
+        return cse.contains(sortedList);
     }
 }
