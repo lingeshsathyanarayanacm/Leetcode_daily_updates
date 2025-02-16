@@ -8,7 +8,7 @@ class Solution {
         int i = 0, j = 0, count = 0;
 
         while (i < g.length && j < s.length) {
-            if (s[j] >= g[i]) { // If the cookie can satisfy the child
+            if (g[i]<=s[j]) { // If the cookie can satisfy the child
                 count++;
                 i++; // Move to the next child
             }
