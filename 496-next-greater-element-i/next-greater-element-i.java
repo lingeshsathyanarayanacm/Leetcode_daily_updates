@@ -7,10 +7,10 @@ class Solution {
             int nextGreater = -1;
 
             for (int j = 0; j < nums2.length; j++) {
-                if (nums2[j] == element) {
+                if (nums2[j] == nums1[i]) {
 
                     for (int k = j + 1; k < nums2.length; k++) {
-                        if (nums2[k] > element) {
+                        if (nums2[k] >nums1[i]) {
                             nextGreater = nums2[k];
                             break;
                         }
