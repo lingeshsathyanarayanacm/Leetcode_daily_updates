@@ -1,15 +1,16 @@
 class Solution {
-    public int findTargetSumWays(int[] nums, int target) {
-        return backtrack(nums,target,0,0,nums.length);
-    }
-    public int backtrack(int nums[],int target,int start,int sum,int n)
-    {
-        if(start==nums.length)
-        {
-            return sum==target?1:0;
+    public void solve(int[] nums, int target, int[] count, int sum, int index) {
+        if (index == nums.length) {
+            if (sum == target) count[0]++;
+            return;
         }
-       int add=backtrack(nums,target,start+1,sum+nums[start],n);
-       int sub=backtrack(nums,target,start+1,sum-nums[start],n);
-       return add+sub;
+        solve(nums, target, count, sum + nums[index], index + 1);
+        solve(nums, target, count, sum - nums[index], index + 1);
     }
-}  
+
+    public int findTargetSumWays(int[] nums, int target) {
+        int[] count = {0}; 
+        solve(nums, target, count, 0, 0);
+        return count[0];
+    }
+}
