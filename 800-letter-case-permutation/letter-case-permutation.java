@@ -16,7 +16,7 @@ class Solution {
         {
             ch[index]=Character.isUpperCase(ch[index])?Character.toLowerCase(ch[index]):Character.toUpperCase(ch[index]);
             ispermutate(ch,index+1,result);
-            ch[index]=Character.isUpperCase(ch[index])?Character.toLowerCase(ch[index]):Character.toUpperCase(ch[index]);
+            //ch[index]=Character.isUpperCase(ch[index])?Character.toLowerCase(ch[index]):Character.toUpperCase(ch[index]);
         }
 
 
